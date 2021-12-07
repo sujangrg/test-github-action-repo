@@ -18,6 +18,10 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
+      - name: Set Azure cred
+        with: # Set Azure credentials secret as an input
+          credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
